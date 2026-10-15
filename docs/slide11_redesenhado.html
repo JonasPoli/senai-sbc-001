@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Atlas Access · Slide 11 Redesenhado</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+    body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .slide-card {
+      width: 960px; height: 540px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 2px solid #334155; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      padding: 35px 45px; display: flex; flex-direction: column; justify-content: space-between; position: relative;
+    }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #38bdf8; padding-bottom: 12px; }
+    .title { font-size: 26px; font-weight: 700; color: #38bdf8; letter-spacing: -0.5px; }
+    .subtitle { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+    .badge { background: #0284c7; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+    
+    .diagram-box {
+      background: rgba(15, 23, 42, 0.6); border: 1px solid #475569; border-radius: 8px; padding: 15px 25px; margin: 15px 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .diagram-row { display: flex; justify-content: center; align-items: center; gap: 40px; font-family: 'Fira Code', monospace; font-size: 18px; }
+    .code-term { padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+    .functor { color: #f43f5e; background: rgba(244, 63, 94, 0.15); }
+    .variable { color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px dashed #38bdf8; }
+    .constant { color: #10b981; background: rgba(16, 185, 129, 0.15); }
+    .arrows { display: flex; justify-content: center; gap: 90px; color: #fbbf24; font-size: 20px; margin: 4px 0; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 14px; }
+    th { background: #1e3a8a; color: #e2e8f0; text-align: left; padding: 8px 12px; font-weight: 600; border-top-left-radius: 4px; }
+    td { padding: 8px 12px; border-bottom: 1px solid #334155; }
+    tr:nth-child(even) { background: rgba(51, 65, 85, 0.3); }
+    
+    .footer { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #64748b; border-top: 1px solid #334155; padding-top: 8px; }
+    .highlight-badge { background: #10b981; color: #022c22; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
+  </style>
+</head>
+<body>
+
+  <div class="slide-card">
+    <div class="header">
+      <div>
+        <div class="title">Regra Prolog e Unificação</div>
+        <div class="subtitle">Etapas 6 e 7 · Raciocínio Computacional · PROLOG_PARTE_1 (p. 14–16)</div>
+      </div>
+      <div class="badge">11 · Jonas (2:00)</div>
+    </div>
+
+    <!-- Diagrama Visual de Casamento -->
+    <div class="diagram-box">
+      <div class="diagram-row">
+        <span style="color: #94a3b8; font-size: 14px;">Consulta:</span>
+        <span class="code-term functor">acesso</span>
+        <span>(</span>
+        <span class="code-term constant">ana</span>
+        <span>,</span>
+        <span class="code-term constant">producao</span>
+        <span>)</span>
+      </div>
+      <div class="arrows">
+        <span>↓</span>
+        <span>↓</span>
+        <span>↓</span>
+      </div>
+      <div class="diagram-row">
+        <span style="color: #94a3b8; font-size: 14px;">Regra R05:</span>
+        <span class="code-term functor">acesso</span>
+        <span>(</span>
+        <span class="code-term variable">X</span>
+        <span>,</span>
+        <span class="code-term constant">producao</span>
+        <span>)</span>
+        <span style="color: #94a3b8; font-size: 14px;">:- ...</span>
+      </div>
+    </div>
+
+    <!-- Tabela Reordenada com Lógica Real -->
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 15%;">Ordem</th>
+          <th style="width: 30%;">Regra de Unificação</th>
+          <th style="width: 30%;">O que o Motor Compara?</th>
+          <th style="width: 25%;">Resultado Prático</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color: #38bdf8;">1ª Etapa</strong></td>
+          <td><strong>Estruturas compatíveis</strong></td>
+          <td>Functor e aridade: <code>acesso/2</code> com <code>acesso/2</code></td>
+          <td><span class="highlight-badge">COMPATÍVEL</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: #38bdf8;">2ª Etapa</strong></td>
+          <td><strong>Constantes iguais</strong></td>
+          <td>2º argumento: <code>producao</code> com <code>producao</code></td>
+          <td><span class="highlight-badge">IGUAIS</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: #38bdf8;">3ª Etapa</strong></td>
+          <td><strong>Variável livre e termo</strong></td>
+          <td>1º argumento: variável <code>X</code> recebe <code>ana</code></td>
+          <td><strong>X = ana</strong> (propaga)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      <div><strong>Ordem do Motor:</strong> Cláusulas de cima para baixo no arquivo · Objetivos da esquerda para a direita no corpo</div>
+      <div>Atlas Access · SENAI São Carlos</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; color: #94a3b8; font-size: 14px; text-align: center;">
+    Dica: Você pode tirar um print deste cartão e colar como imagem direto no seu Google Slides, ou copiar os textos para a tabela!
+  </div>
+
+</body>
+</html>
+

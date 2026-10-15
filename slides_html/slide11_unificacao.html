@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Regra Prolog e unificação - Slide 11</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #fafaf7;
+      color: #152d3b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 85px 105px 65px 105px;
+    }
+
+    /* Cabeçalho */
+    .title-area {
+      margin-bottom: 25px;
+    }
+    h1 {
+      font-size: 58px;
+      font-weight: 700;
+      color: #152d3b;
+      letter-spacing: -1px;
+      line-height: 1.15;
+    }
+    .subtitle {
+      font-size: 24px;
+      color: #788896;
+      margin-top: 14px;
+      font-weight: 400;
+    }
+
+    /* Bloco de Código */
+    .code-area {
+      margin: 20px 0 35px 0;
+    }
+    .prolog-code {
+      font-family: "SF Mono", Menlo, Consolas, Monaco, "Courier New", monospace;
+      font-size: 34px;
+      line-height: 1.48;
+      color: #2f8277;
+      font-weight: 500;
+    }
+    .prolog-code .indent {
+      padding-left: 60px;
+    }
+
+    /* Tabela no padrão visual exato do slide */
+    .table-container {
+      width: 100%;
+      margin-bottom: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    th {
+      background-color: #152d3b;
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 700;
+      text-align: left;
+      padding: 16px 28px;
+      letter-spacing: -0.2px;
+    }
+    th:first-child {
+      width: 42%;
+    }
+    th:last-child {
+      width: 58%;
+    }
+    td {
+      font-size: 25px;
+      color: #152d3b;
+      padding: 16px 28px;
+      line-height: 1.35;
+      border: none;
+    }
+    tr.row-white {
+      background-color: #fafaf7;
+    }
+    tr.row-tint {
+      background-color: #e0e9e8;
+    }
+    .rule-name {
+      font-weight: 500;
+    }
+    .rule-desc {
+      color: #152d3b;
+    }
+    .code-hl {
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      color: #2f8277;
+      font-weight: 600;
+    }
+
+    /* Rodapé */
+    .footer {
+      border-top: 2px solid #e6eced;
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 19px;
+      color: #a5b0b5;
+      font-weight: 400;
+    }
+    .footer-right {
+      display: flex;
+      gap: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <div class="title-area">
+    <h1>Regra Prolog e unificação</h1>
+    <div class="subtitle">Etapas 6 e 7 · 19:00–21:00</div>
+  </div>
+
+  <!-- Código da Regra R05 -->
+  <div class="code-area">
+    <div class="prolog-code">
+      <div>acesso(X, producao) :-</div>
+      <div class="indent">funcionario(X),</div>
+      <div class="indent">credencial_valida(X),</div>
+      <div class="indent">treinamento_concluido(X),</div>
+      <div class="indent">autorizacao_especial(X).</div>
+    </div>
+  </div>
+
+  <!-- Tabela com a ordem correta e exemplos precisos -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Regra de unificação</th>
+          <th>Exemplo prático neste caso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1ª Etapa: Estrutura -->
+        <tr class="row-white">
+          <td class="rule-name">Estruturas compatíveis</td>
+          <td class="rule-desc">Mesmo predicado e aridade (<span class="code-hl">acesso/2</span> casa com <span class="code-hl">acesso/2</span>)</td>
+        </tr>
+        <!-- 2ª Etapa: Constantes -->
+        <tr class="row-tint">
+          <td class="rule-name">Constantes iguais</td>
+          <td class="rule-desc"><span class="code-hl">producao</span> unifica com <span class="code-hl">producao</span> (átomos idênticos)</td>
+        </tr>
+        <!-- 3ª Etapa: Variável -->
+        <tr class="row-white">
+          <td class="rule-name">Variável livre e termo</td>
+          <td class="rule-desc"><span class="code-hl">X</span> unifica com <span class="code-hl">ana</span> (instancia <span class="code-hl">X = ana</span> em todo o corpo)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Rodapé padrão da apresentação -->
+  <div class="footer">
+    <div>PROLOG_PARTE_1.pdf, p. 14–16 · PROLOG_PARTE_2.pdf, p. 3–10</div>
+    <div class="footer-right">
+      <span>11</span>
+      <span>Jonas</span>
+      <span>2:00</span>
+    </div>
+  </div>
+
+</body>
+</html>
+

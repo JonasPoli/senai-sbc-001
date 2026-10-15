@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide 10 · Fatos, regras e inferência</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fafaf7;
+      color: #152d3b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 75px 105px 55px 105px;
+    }
+
+    /* Cabeçalho */
+    .title-area { margin-bottom: 25px; }
+    h1 { font-size: 56px; font-weight: 700; color: #152d3b; letter-spacing: -1px; }
+    .subtitle { font-size: 24px; color: #788896; margin-top: 10px; font-weight: 400; }
+
+    /* Conteúdo Principal */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      margin-bottom: 30px;
+      align-items: start;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e6eced;
+      border-radius: 8px;
+      padding: 30px 35px;
+      box-shadow: 0 4px 12px rgba(21, 45, 59, 0.04);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #788896;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #e6eced;
+      padding-bottom: 8px;
+    }
+
+    .section-label {
+      font-size: 22px;
+      font-weight: 600;
+      color: #152d3b;
+      margin-bottom: 12px;
+    }
+
+    .code-block {
+      background-color: #fafaf7;
+      border-left: 5px solid #2f8277;
+      padding: 18px 24px;
+      font-family: "SF Mono", Menlo, Consolas, Monaco, monospace;
+      font-size: 26px;
+      color: #2f8277;
+      line-height: 1.6;
+    }
+
+    .query-box {
+      background-color: #e0e9e8;
+      border-radius: 6px;
+      padding: 20px 24px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #152d3b;
+    }
+
+    /* Caixa de Conhecimento Usado */
+    .highlight-box {
+      background-color: rgba(224, 233, 232, 0.45);
+      border-left: 6px solid #2f8277;
+      padding: 16px 26px;
+      font-size: 22px;
+      color: #152d3b;
+    }
+    .highlight-box strong { color: #152d3b; }
+
+    /* Rodapé */
+    .footer {
+      border-top: 2px solid #e6eced;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      color: #a5b0b5;
+    }
+    .footer-right { display: flex; gap: 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <div class="title-area">
+    <h1>Fatos, regras e inferência</h1>
+    <div class="subtitle">Etapas 6 e 7 · 18:00–19:00</div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="content-grid">
+    <!-- Coluna da Esquerda: Resposta / Fatos -->
+    <div class="card">
+      <div class="card-title">RESPOSTA · BASE DE CONHECIMENTO</div>
+      <div class="section-label">Fatos sobre Ana</div>
+      <div class="code-block">
+        funcionario(ana).<br>
+        credencial_valida(ana).<br>
+        treinamento_concluido(ana).<br>
+        autorizacao_especial(ana).
+      </div>
+    </div>
+
+    <!-- Coluna da Direita: Consulta -->
+    <div class="card">
+      <div class="card-title">INFERÊNCIA · CONSULTA</div>
+      <div class="section-label">Consulta submetida</div>
+      <div class="query-box">
+        ?- acesso(ana, producao).
+      </div>
+      <div style="margin-top: 25px; font-size: 20px; color: #788896; line-height: 1.5;">
+        A autorização não é gravada como fato estático, mas sim <strong>inferida dinamicamente</strong> pelo motor lógico a partir da regra R05.
+      </div>
+    </div>
+  </div>
+
+  <!-- Conhecimento Usado -->
+  <div class="highlight-box">
+    <strong>CONHECIMENTO USADO:</strong> A inferência demonstra acesso a partir dos fatos e da regra R05.
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div>PROLOG_PARTE_1.pdf, p. 4–6 e 14–16 · SA01_Access.pdf, p. 6</div>
+    <div class="footer-right">
+      <span>10</span>
+      <span>Jonas</span>
+      <span>1:00</span>
+    </div>
+  </div>
+
+</body>
+</html>

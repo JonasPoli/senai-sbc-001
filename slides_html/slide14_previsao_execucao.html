@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide 14 · Previsão e execução</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fafaf7;
+      color: #152d3b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 65px 105px 45px 105px;
+    }
+
+    /* Cabeçalho */
+    .title-area { margin-bottom: 16px; }
+    h1 { font-size: 56px; font-weight: 700; color: #152d3b; letter-spacing: -1px; }
+    .subtitle { font-size: 24px; color: #788896; margin-top: 6px; font-weight: 400; }
+
+    /* Tabela */
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; margin-bottom: 18px; }
+    th {
+      background-color: #152d3b;
+      color: #ffffff;
+      font-size: 23px;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 22px;
+    }
+    th:nth-child(1) { width: 38%; }
+    th:nth-child(2) { width: 13%; text-align: center; }
+    th:nth-child(3) { width: 13%; text-align: center; }
+    th:nth-child(4) { width: 36%; }
+
+    td { font-size: 22px; color: #152d3b; padding: 11px 22px; }
+    td:nth-child(2), td:nth-child(3) { text-align: center; font-family: "SF Mono", Menlo, Consolas, monospace; }
+    tr.row-white { background-color: #fafaf7; }
+    tr.row-tint { background-color: #e0e9e8; }
+    
+    .code-term {
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-weight: 500;
+      color: #2f8277;
+    }
+    .val-true {
+      color: #2f8277;
+      font-weight: 700;
+    }
+    .val-false {
+      color: #be123c;
+      font-weight: 700;
+    }
+    .diag-box {
+      font-size: 20px;
+      color: #152d3b;
+    }
+    .diag-box strong {
+      color: #152d3b;
+    }
+
+    /* Caixa de Conhecimento Usado */
+    .highlight-box {
+      background-color: rgba(224, 233, 232, 0.45);
+      border-left: 6px solid #2f8277;
+      padding: 13px 24px;
+      font-size: 20px;
+      color: #152d3b;
+      line-height: 1.4;
+    }
+    .highlight-box strong { color: #152d3b; }
+
+    /* Rodapé */
+    .footer {
+      border-top: 2px solid #e6eced;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      color: #a5b0b5;
+    }
+    .footer-right { display: flex; gap: 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <div class="title-area">
+    <h1>Previsão e execução</h1>
+    <div class="subtitle">Etapa 8 · 25:00–27:00</div>
+  </div>
+
+  <!-- Tabela Enriquecida do Slide 14 -->
+  <table id="tabela-slide-14">
+    <thead>
+      <tr>
+        <th>Consulta Avaliada</th>
+        <th>Previsto</th>
+        <th>Executado</th>
+        <th>Diagnóstico Formal do Sistema (CWA)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-white">
+        <td class="code-term">acesso(ana, producao)</td>
+        <td><span class="val-true">true</span></td>
+        <td><span class="val-true">true</span></td>
+        <td class="diag-box"><strong>Autorizado:</strong> Satisfez R05 (F ∧ C ∧ T ∧ S)</td>
+      </tr>
+      <tr class="row-tint">
+        <td class="code-term">acesso(bruno, laboratorio)</td>
+        <td><span class="val-false">false</span></td>
+        <td><span class="val-false">false</span></td>
+        <td class="diag-box"><strong>Negado:</strong> Ausência do fato treinamento(bruno)</td>
+      </tr>
+      <tr class="row-white">
+        <td class="code-term">acesso(carla, laboratorio)</td>
+        <td><span class="val-true">true</span></td>
+        <td><span class="val-true">true</span></td>
+        <td class="diag-box"><strong>Autorizado:</strong> Satisfez R04 (P ∧ C ∧ T)</td>
+      </tr>
+      <tr class="row-tint">
+        <td class="code-term">acesso(diego, producao)</td>
+        <td><span class="val-false">false</span></td>
+        <td><span class="val-false">false</span></td>
+        <td class="diag-box"><strong>Negado:</strong> Ausência de autorizacao_especial(diego)</td>
+      </tr>
+      <tr class="row-white">
+        <td class="code-term">acesso(elisa, laboratorio)</td>
+        <td><span class="val-false">false</span></td>
+        <td><span class="val-false">false</span></td>
+        <td class="diag-box"><strong>Sem Regra:</strong> Base não prevê visitante em lab</td>
+      </tr>
+      <tr class="row-tint">
+        <td class="code-term">acesso(fernando, producao)</td>
+        <td><span class="val-false">false</span></td>
+        <td><span class="val-false">false</span></td>
+        <td class="diag-box"><strong>Negado:</strong> Ausência de autorizacao_especial(fernando)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Conhecimento Usado -->
+  <div class="highlight-box">
+    <strong>CONHECIMENTO USADO:</strong> <em>false</em> significa “não demonstrável com os fatos e regras da base atual” (Closed World Assumption).<br>
+    <strong>CONVERGÊNCIA:</strong> 100% de convergência entre a dedução formal teórica e a inferência computacional do motor.
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div>SA01_Access.pdf, p. 6–7 · PROLOG_PARTE_1.pdf, p. 11 · Execução SWI-Prolog 9.0.4</div>
+    <div class="footer-right">
+      <span>14</span>
+      <span>Jonas</span>
+      <span>2:00</span>
+    </div>
+  </div>
+
+</body>
+</html>

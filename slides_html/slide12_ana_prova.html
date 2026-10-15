@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide 12 · Ana: uma prova bem-sucedida</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fafaf7;
+      color: #152d3b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 70px 105px 50px 105px;
+    }
+
+    /* Cabeçalho */
+    .title-area { margin-bottom: 16px; }
+    h1 { font-size: 56px; font-weight: 700; color: #152d3b; letter-spacing: -1px; }
+    .subtitle { font-size: 24px; color: #788896; margin-top: 8px; font-weight: 400; }
+
+    /* Consulta */
+    .query-box { margin: 12px 0 20px 0; display: flex; justify-content: space-between; align-items: center; }
+    .query-text {
+      font-family: "SF Mono", Menlo, Consolas, Monaco, monospace;
+      font-size: 34px;
+      color: #2f8277;
+      font-weight: 600;
+    }
+    .badge-pill {
+      background-color: #e0e9e8;
+      color: #152d3b;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Tabela */
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th {
+      background-color: #152d3b;
+      color: #ffffff;
+      font-size: 25px;
+      font-weight: 700;
+      text-align: left;
+      padding: 13px 28px;
+    }
+    th:nth-child(1) { width: 45%; }
+    th:nth-child(2) { width: 25%; }
+    th:nth-child(3) { width: 30%; }
+
+    td { font-size: 24px; color: #152d3b; padding: 12px 28px; }
+    tr.row-white { background-color: #fafaf7; }
+    tr.row-tint { background-color: #e0e9e8; }
+    
+    .code-term {
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-weight: 500;
+    }
+    .badge-true {
+      color: #2f8277;
+      font-weight: 700;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    /* Caixa de Conhecimento Usado */
+    .highlight-box {
+      background-color: rgba(224, 233, 232, 0.45);
+      border-left: 6px solid #2f8277;
+      padding: 14px 24px;
+      font-size: 21px;
+      color: #152d3b;
+      line-height: 1.4;
+    }
+    .highlight-box strong { color: #152d3b; }
+
+    /* Rodapé */
+    .footer {
+      border-top: 2px solid #e6eced;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      color: #a5b0b5;
+    }
+    .footer-right { display: flex; gap: 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <div class="title-area">
+    <h1>Ana: uma prova bem-sucedida</h1>
+    <div class="subtitle">Etapas 7 e 8 · 21:00–22:30</div>
+  </div>
+
+  <!-- Consulta -->
+  <div class="query-box">
+    <div class="query-text">?- acesso(ana, producao).</div>
+    <div class="badge-pill">Regra Acionada: R05 · Prova Direta</div>
+  </div>
+
+  <!-- Tabela Exata do Slide 12 -->
+  <table id="tabela-slide-12">
+    <thead>
+      <tr>
+        <th>Objetivo</th>
+        <th>Portas (Byrd)</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-white">
+        <td class="code-term">funcionario(ana)</td>
+        <td>Call / Exit</td>
+        <td>Fato encontrado na base</td>
+      </tr>
+      <tr class="row-tint">
+        <td class="code-term">credencial_valida(ana)</td>
+        <td>Call / Exit</td>
+        <td>Fato encontrado na base</td>
+      </tr>
+      <tr class="row-white">
+        <td class="code-term">treinamento_concluido(ana)</td>
+        <td>Call / Exit</td>
+        <td>Fato encontrado na base</td>
+      </tr>
+      <tr class="row-tint">
+        <td class="code-term">autorizacao_especial(ana)</td>
+        <td>Call / Exit</td>
+        <td>Fato encontrado na base</td>
+      </tr>
+      <tr class="row-white">
+        <td class="code-term"><strong>acesso(ana, producao)</strong></td>
+        <td><strong>Exit</strong></td>
+        <td><span class="badge-true">true (Autorizado)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Conhecimento Usado -->
+  <div class="highlight-box">
+    <strong>CONHECIMENTO USADO:</strong> Todos os 4 objetivos do corpo de R05 unificaram com sucesso com X = ana.<br>
+    <strong>MECANISMO DO MOTOR:</strong> Prova determinística linear sem necessidade de refazer escolhas. <strong>Backtracking = 0.</strong>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <div>SA01_Access.pdf, p. 6–7 · PROLOG_PARTE_2.pdf, p. 13–19 · Execução SWI-Prolog 9.0.4</div>
+    <div class="footer-right">
+      <span>12</span>
+      <span>Jonas</span>
+      <span>1:30</span>
+    </div>
+  </div>
+
+</body>
+</html>
