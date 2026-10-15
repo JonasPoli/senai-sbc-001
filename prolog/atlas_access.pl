@@ -96,6 +96,12 @@ acesso(X, escritorio) :-
     funcionario(X),
     credencial_valida(X).
 
+
+% acesso(X, escritorio) :-
+%     prestador(X),
+%     credencial_valida(X),
+%     treinamento_concluido(X).    
+
 % ------------------------------------------------------------------------------
 % REGRA R03 - Laboratório Técnico (Área A03) para Funcionários
 % Trecho da fonte: "No Laboratório, além da credencial, exigimos o treinamento
