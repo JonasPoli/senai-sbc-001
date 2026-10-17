@@ -62,12 +62,12 @@ Um menu em português aparecerá no terminal permitindo:
 
 ### Método 2: Via Linha de Comando (Prompt de Comando ou PowerShell)
 
-#### 1. Usando SWI-Prolog no Windows:
-```cmd
-:: Abrir a base principal no SWI-Prolog:
-swipl prolog\atlas_access.pl
+#### 1. Usando SWI-Prolog (Windows, Mac ou Linux):
+```bash
+# Abrir a base principal no SWI-Prolog:
+swipl prolog/atlas_access.pl
 
-:: No prompt interativo ?- digite:
+# No prompt interativo ?- digite:
 ?- acesso(ana, producao).
 true.
 
@@ -78,32 +78,33 @@ false.
 ```
 
 Para rodar a apresentação dos slides 10 a 14 no SWI-Prolog:
-```cmd
-swipl prolog\apresentacao_slides.pl
-:: No prompt ?- digite: slide10. ou slide12. ou slide13. ou slide14.
+```bash
+swipl prolog/apresentacao_slides.pl
+# No prompt ?- digite: slide10. ou slide12. ou slide13. ou slide14.
 ```
 
 Para rodar os testes em Prolog:
-```cmd
-swipl -s prolog\test_casos.pl -g run_tests -t halt
+```bash
+swipl -s prolog/test_casos.pl -g run_tests -t halt
 ```
 
-#### 2. Usando Python no Windows:
-```cmd
-:: Ensaio da apresentação dos slides do Jonas (10 ao 14):
-python python\apresentacao_jonas.py
+#### 2. Usando Python:
+```bash
+# Ensaio da apresentação dos slides do Jonas (10 ao 14):
+python3 python/apresentacao_jonas.py
 
-:: Executar apenas um slide específico:
-python python\apresentacao_jonas.py 12
-python python\apresentacao_jonas.py 13
-python python\apresentacao_jonas.py 14
+# Executar apenas um slide específico:
+python3 python/apresentacao_jonas.py 12
+python3 python/apresentacao_jonas.py 13
+python3 python/apresentacao_jonas.py 14
 
-:: Menu geral interativo:
-python python\main.py
+# Menu geral interativo:
+python3 python/main.py
 
-:: Executar os 12 testes unitários:
-python -m unittest python\tests\test_suite.py
+# Executar os 12 testes unitários:
+python3 -m unittest python/tests/test_suite.py
 ```
+*(No Windows, se `python3` não estiver definido, use `python` no lugar de `python3`).*
 
 ---
 

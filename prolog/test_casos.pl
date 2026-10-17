@@ -5,7 +5,7 @@
 % Execução: swipl -s tests/test_casos.pl -g run_tests -t halt
 % ==============================================================================
 
-:- ( exists_file('atlas_access.pl') -> consult('atlas_access.pl') ; ( exists_file('prolog/atlas_access.pl') -> consult('prolog/atlas_access.pl') ; consult('../src/atlas_access.pl') ) ).
+:- consult('atlas_access.pl').
 
 run_tests :-
     format('~n============================================================~n', []),
